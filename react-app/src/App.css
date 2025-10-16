@@ -1,0 +1,485 @@
+/* Thiết lập CSS gốc */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #202225;
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* Xóa thanh cuộn */
+}
+
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Video Nền */
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
+    object-fit: cover;
+    filter: blur(3px) brightness(0.8);
+}
+
+/* Lớp phủ mờ ảo cho nền */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+/* Khung chính chứa Profile và Widget (căn giữa) */
+.profile-container {
+    width: 100%;
+    max-width: 400px;
+  text-align: center;
+    z-index: 10;
+    background-color: rgba(20, 20, 25, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Avatar (Giữ nguyên hình tròn cố định) */
+.avatar-wrap {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    position: relative;
+    overflow: hidden;
+    border: 4px solid #2f3136;
+}
+
+.avatar-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.glow-ring {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 5px rgba(138, 43, 226, 0.7), 0 0 25px 10px rgba(138, 43, 226, 0.4);
+    z-index: -1;
+}
+
+/* Widget Nghe Nhạc */
+.music-widget {
+    background-color: transparent;
+    backdrop-filter: none;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Album Art Mini (Giữ nguyên bo góc cố định) */
+.album-art-mini {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    background-color: #3b3b3b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.album-art-mini img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+/* Thanh Tiến Trình */
+#progress-container {
+    height: 6px;
+    background: rgba(79, 84, 92, 0.6);
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+#progress {
+    height: 100%;
+    width: 0%;
+    background: #1ed760;
+    border-radius: 3px;
+    transition: width 0.1s linear;
+}
+
+/* --- CÁC ICON MẠNG XÃ HỘI VÀ HIỆU ỨNG CHUYỂN ĐỔI --- */
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    margin: 0 10px;
+    border-radius: 8px;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease, border-radius 1s ease-in-out;
+}
+
+.social-links a.is-round {
+    border-radius: 50%;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+}
+
+.social-links .fa-github {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+}
+
+.social-links .fa-facebook {
+    color: #1877F2;
+    text-shadow: 0 0 10px rgba(24, 119, 242, 0.9);
+}
+
+.social-links .fa-linkedin {
+    color: #0077b5;
+    text-shadow: 0 0 10px rgba(0, 119, 181, 0.9);
+}
+
+.social-links .fa-envelope {
+    color: #ea4335;
+    text-shadow: 0 0 10px rgba(234, 67, 53, 0.9);
+}
+
+.social-links .fa-github:hover {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+.social-links .fa-facebook:hover {
+    text-shadow: 0 0 20px rgba(24, 119, 242, 1), 0 0 30px rgba(24, 119, 242, 0.8);
+}
+
+.social-links .fa-linkedin:hover {
+    text-shadow: 0 0 20px rgba(0, 119, 181, 1), 0 0 30px rgba(0, 119, 181, 0.8);
+}
+
+.social-links .fa-envelope:hover {
+    text-shadow: 0 0 20px rgba(234, 67, 53, 1), 0 0 30px rgba(234, 67, 53, 0.8);
+}
+
+/* Nút Mini Apps */
+.mini-apps-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    margin: 0 10px;
+    border-radius: 8px;
+    background: transparent;
+    color: #9b59b6;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+    text-shadow: 0 0 10px rgba(155, 89, 182, 0.9);
+}
+
+.mini-apps-btn:hover {
+    transform: scale(1.2);
+    text-shadow: 0 0 20px rgba(155, 89, 182, 1), 0 0 30px rgba(155, 89, 182, 0.8);
+}
+
+/* Volume Controls */
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 15px;
+    position: relative;
+}
+
+.volume-icon {
+    color: #b9bbbe;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    flex-shrink: 0;
+    width: 18px;
+}
+
+.volume-icon:hover {
+    color: #1ed760;
+}
+
+.volume-slider-wrapper {
+    flex: 1;
+    position: relative;
+    height: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.volume-slider-track {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: rgba(79, 84, 92, 0.6);
+    border-radius: 3px;
+    pointer-events: none;
+}
+
+.volume-slider-fill {
+    position: absolute;
+    left: 0;
+    height: 6px;
+    background: #1ed760;
+    border-radius: 3px;
+    pointer-events: none;
+    width: 50%;
+}
+
+.volume-slider-thumb {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    pointer-events: none;
+    left: calc(50% - 7px);
+    transition: transform 0.1s ease;
+}
+
+#volume-slider {
+    width: 100%;
+    height: 14px;
+    opacity: 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    margin: 0;
+}
+
+#volume-slider:hover + .volume-slider-thumb {
+    transform: scale(1.2);
+}
+
+/* Controls buttons */
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.controls button {
+    background: none;
+    border: none;
+    color: #b9bbbe;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.controls button:hover {
+    color: #1ed760;
+    transform: scale(1.1);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    body {
+        padding-top: 20px;
+    }
+    
+    .container {
+        padding: 10px;
+        max-width: 100%;
+    }
+    
+    .profile-container {
+        max-width: 100%;
+        padding: 1rem;
+    }
+    
+    .avatar-wrap {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+    }
+    
+    .name {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .text-sm {
+        font-size: 0.9rem;
+    }
+    
+    .social-links {
+        margin: 1.5rem 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .social-links a {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+        margin: 0 8px;
+    }
+    
+    .music-widget {
+        padding: 15px;
+        margin-top: 20px;
+    }
+    
+    .album-art-mini {
+        width: 50px;
+        height: 50px;
+        margin-right: 12px;
+    }
+    
+    .controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+        gap: 1rem;
+    }
+    
+    .controls button {
+        padding: 8px;
+        font-size: 16px;
+    }
+    
+    #play-pause-btn {
+        font-size: 24px;
+    }
+    
+    .volume-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    #volume-slider {
+        flex: 1;
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 10px;
+    }
+    
+    .profile-container {
+        padding: 0.75rem;
+    }
+    
+    .avatar-wrap {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .name {
+        font-size: 1.6rem;
+    }
+    
+    .social-links a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        margin: 0 6px;
+    }
+    
+    .music-widget {
+        padding: 12px;
+    }
+    
+    .album-art-mini {
+        width: 45px;
+        height: 45px;
+        margin-right: 10px;
+    }
+    
+    .controls {
+        gap: 0.75rem;
+    }
+    
+    .controls button {
+        padding: 6px;
+        font-size: 14px;
+    }
+    
+    #play-pause-btn {
+        font-size: 20px;
+    }
+}
+
+/* Touch optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .social-links a:hover {
+        transform: none;
+    }
+    
+    .social-links a:active {
+        transform: scale(0.95);
+    }
+    
+    .controls button:active {
+        transform: scale(0.9);
+    }
+}
+
+/* Landscape mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    body {
+        padding-top: 10px;
+    }
+    
+    .profile-container {
+        padding: 0.5rem;
+    }
+    
+    .avatar-wrap {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .name {
+        font-size: 1.4rem;
+    }
+}

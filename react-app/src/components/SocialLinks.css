@@ -1,0 +1,98 @@
+/* Social Links Component Styles */
+.social-links {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  margin: 0 10px;
+  border-radius: 8px;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease, border-radius 1s ease-in-out;
+}
+
+.social-link.is-round {
+  border-radius: 50%;
+}
+
+.social-link:hover {
+  transform: scale(1.2);
+}
+
+/* GitHub */
+.social-link.github {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+}
+
+.social-link.github:hover {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+/* Facebook */
+.social-link.facebook {
+  color: #1877F2;
+  text-shadow: 0 0 10px rgba(24, 119, 242, 0.9);
+}
+
+.social-link.facebook:hover {
+  text-shadow: 0 0 20px rgba(24, 119, 242, 1), 0 0 30px rgba(24, 119, 242, 0.8);
+}
+
+/* LinkedIn */
+.social-link.linkedin {
+  color: #0077b5;
+  text-shadow: 0 0 10px rgba(0, 119, 181, 0.9);
+}
+
+.social-link.linkedin:hover {
+  text-shadow: 0 0 20px rgba(0, 119, 181, 1), 0 0 30px rgba(0, 119, 181, 0.8);
+}
+
+/* Email */
+.social-link.email {
+  color: #ea4335;
+  text-shadow: 0 0 10px rgba(234, 67, 53, 0.9);
+}
+
+.social-link.email:hover {
+  text-shadow: 0 0 20px rgba(234, 67, 53, 1), 0 0 30px rgba(234, 67, 53, 0.8);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .social-link {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    margin: 0 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-link {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    margin: 0 6px;
+  }
+}
+
+/* Touch optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .social-link:hover {
+    transform: none;
+  }
+  
+  .social-link:active {
+    transform: scale(0.95);
+  }
+}

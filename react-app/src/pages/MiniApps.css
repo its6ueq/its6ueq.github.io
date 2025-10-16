@@ -1,0 +1,207 @@
+/* Mini Apps Page Styles */
+.mini-apps-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.mini-apps-container {
+  position: relative;
+  z-index: 10;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: white;
+}
+
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgba(20, 20, 25, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.back-btn:hover {
+  background: rgba(20, 20, 25, 0.7);
+  transform: translateY(-2px);
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.app-card {
+  background: rgba(20, 20, 25, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.app-card:hover::before {
+  left: 100%;
+}
+
+.app-card:hover {
+  transform: translateY(-5px);
+  background: rgba(20, 20, 25, 0.7);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.app-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.app-info {
+  flex: 1;
+}
+
+.app-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.app-description {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.app-arrow {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.app-card:hover .app-arrow {
+  color: white;
+  transform: translateX(5px);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .mini-apps-container {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .apps-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .app-card {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+  
+  .app-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+  
+  .app-name {
+    font-size: 1.1rem;
+  }
+  
+  .app-description {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-btn {
+    top: 15px;
+    left: 15px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .app-card {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .app-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+}

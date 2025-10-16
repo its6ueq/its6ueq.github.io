@@ -1,0 +1,242 @@
+/* Music Player Component Styles */
+.music-widget {
+  background-color: rgba(47, 49, 54, 0.3);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+}
+
+.music-status {
+  color: #1ed760;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.track-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.album-art {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  background-color: #3b3b3b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.album-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.track-details {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.track-name {
+  font-weight: bold;
+  font-size: 1.125rem;
+  color: white;
+  margin: 0 0 0.25rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-artist {
+  color: #b9bbbe;
+  font-size: 0.875rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.progress-section {
+  margin: 0.75rem 0;
+}
+
+.progress-container {
+  height: 6px;
+  background: rgba(79, 84, 92, 0.6);
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #1ed760;
+  border-radius: 3px;
+  transition: width 0.1s linear;
+}
+
+.time-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #b9bbbe;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.controls button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.play-pause-btn {
+  font-size: 1.5rem;
+  margin: 0 1rem;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.volume-control i {
+  color: #b9bbbe;
+  font-size: 0.875rem;
+}
+
+.volume-control input[type="range"] {
+  flex: 1;
+  max-width: 150px;
+  height: 4px;
+  background: rgba(79, 84, 92, 0.6);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.volume-control input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #1ed760;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.volume-control input[type="range"]::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: #1ed760;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .music-widget {
+    padding: 15px;
+    margin-top: 20px;
+  }
+  
+  .album-art {
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+  }
+  
+  .track-name {
+    font-size: 1rem;
+  }
+  
+  .track-artist {
+    font-size: 0.8rem;
+  }
+  
+  .controls {
+    gap: 0.75rem;
+  }
+  
+  .controls button {
+    padding: 6px;
+    font-size: 14px;
+  }
+  
+  .play-pause-btn {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .music-widget {
+    padding: 12px;
+  }
+  
+  .album-art {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+  }
+  
+  .track-name {
+    font-size: 0.9rem;
+  }
+  
+  .track-artist {
+    font-size: 0.75rem;
+  }
+  
+  .controls {
+    gap: 0.5rem;
+  }
+  
+  .controls button {
+    padding: 4px;
+    font-size: 12px;
+  }
+  
+  .play-pause-btn {
+    font-size: 1.125rem;
+  }
+}
+
+/* Touch optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .controls button:active {
+    transform: scale(0.9);
+  }
+}
